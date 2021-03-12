@@ -26,6 +26,22 @@ public class LoginPage extends BasePage {
         submitButton.click();
 
     }
+
+    public void enterUsername (String username){
+        WebElement login        = driver().findElement(loginFieldLocator);
+        login.clear();
+        login.sendKeys(username);
+    }
+    public void enterPassword (String password){
+        WebElement passwd       = driver().findElement(passwordFieldLocator);
+        passwd .clear();
+        passwd .sendKeys(password);
+    }
+    public void clickSubmitButton (){
+        WebElement submitButton = driver().findElement(submitBtnLocator);
+        submitButton.click();
+    }
+
     public List<String>getErrorMessage() {
         List<String> result = new ArrayList<>();
         List<WebElement> errors = driver().findElements(errorMessageLocator);
