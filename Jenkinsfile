@@ -1,4 +1,3 @@
-Yurii Voronenko, [26.03.21 17:18]
 #!/usr/bin/env groovy
 import com.cloudbees.groovy.cps.NonCPS
 import groovy.transform.Field
@@ -45,7 +44,6 @@ properties([
 
 node {
     currentBuild.displayName = "#" + (currentBuild.number + "-${params.environment}" + "-${params.groups}")
-    upstream = getUpstreamJob()
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// ----- Stage: Build && Run tests
