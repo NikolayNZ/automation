@@ -50,7 +50,7 @@ node {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     stage('Build && Run tests') {
         try {
-            sh "mvn test -Denv=${params.environment} -Dgroups=${params.groups}"
+            bat "mvn test -Denv=${params.environment} -Dgroups=${params.groups}"
         }
         catch (err) {
             throw err
