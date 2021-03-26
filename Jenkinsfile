@@ -50,6 +50,8 @@ node {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     stage('Build && Run tests') {
         try {
+            cleanWs()
+            checkout scm
             bat "mvn test -Denv=${params.environment} -Dgroups=${params.groups}"
         }
         catch (err) {
