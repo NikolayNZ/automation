@@ -45,7 +45,7 @@ node {
         try {
             cleanWs()
             checkout scm
-            bat "mvn test -Denv=${params.environment} -Dgroups=${params.groups}"
+            bat "mvn test -Denv=${params.environment} -Dgroups=${params.groups} -DnoGUI=true"
         }
         catch (err) {
             throw err

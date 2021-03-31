@@ -8,6 +8,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.w3c.dom.ls.LSOutput;
 
 import java.io.File;
 import java.io.IOException;
@@ -31,19 +32,26 @@ public class Session {
     private MySQLDriver _mysql;
 
     private Session(){}
-    public WebDriver wd (){
-        if (_driver == null){
-            WebDriverManager.chromedriver().setup();
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("start-maximized");
-            options.addArguments("--disable-web-security");
-            options.addArguments("--no-proxy-server");
-            options.addArguments("--headless");
-            options.addArguments("--no-sandbox");
-            _driver = new ChromeDriver(options);
+    public WebDriver wd () {
+        if (_driver == null) {
+            String noGUI = System.getProperty("noGUI", "false");
+            String browserName = System.getProperty("browserName", "chrome");
+            if ("chrome".equals(browserName)) {
+                WebDriverManager.chromedriver().setup();
+
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("start-maximized");
+                options.addArguments("--disable-web-security");
+                options.addArguments("--no-proxy-server");
+                if("true".equals(noGUI)) {
+                    options.addArguments("--headless");
+                    options.addArguments("--no-sandbox");
+                }
+                _driver = new ChromeDriver(options);
+            }
         }
-        return _driver;
-    }
+            return _driver;
+        }
 
     public MySQLDriver mysql(){
         if (_mysql == null)
