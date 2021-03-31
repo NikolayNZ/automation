@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import ua.kiev.prog.automation.base.Config;
 import ua.kiev.prog.automation.base.UITest;
 import ua.kiev.prog.automation.ui.zvisno.LoginSelenidePage;
+import ua.kiev.prog.automation.ui.zvisno.utils.Utils;
 
 @Test
     public class LoginTest extends UITest {
@@ -16,7 +17,7 @@ import ua.kiev.prog.automation.ui.zvisno.LoginSelenidePage;
      @DataProvider (name = "loginData")
         public Object[][] loginData(){
             return new Object[][] {
-                {"invalidLogin",                              Config.SITE_PASSWORD.value,            "Предупреждение: Не совпадает адрес электронной почты и/или пароль."},//invalid login
+                {"invalidLogin" + Utils.genRandString (10),                              Config.SITE_PASSWORD.value,            "Предупреждение: Не совпадает адрес электронной почты и/или пароль."},//invalid login
                 {Config.SITE_USERNAME.value,                  "InvalidPassword",                      "Предупреждение: Не совпадает адрес электронной почты и/или пароль."},//invalid password
                 {Config.SITE_USERNAME.value,                  Config.SITE_PASSWORD.value,              null},//valid
                 {Config.SITE_USERNAME.value.toUpperCase(),    Config.SITE_PASSWORD.value,              null},//VALID UPPERCASE
@@ -28,6 +29,7 @@ import ua.kiev.prog.automation.ui.zvisno.LoginSelenidePage;
 
          /*LoginPage loginPage = new LoginPage();
       loginPage.login(username, password);*/
+        loginSelenidePage.topMenu.language.selectValue("Русский");
         loginSelenidePage.login.val(username);
         loginSelenidePage.passwd.val(password);
         loginSelenidePage.submitButton.click();
