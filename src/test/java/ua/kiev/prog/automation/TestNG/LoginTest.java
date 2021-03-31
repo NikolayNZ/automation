@@ -23,7 +23,7 @@ import ua.kiev.prog.automation.ui.zvisno.LoginSelenidePage;
 
         };
     }
-    @Test (dataProvider = "loginData")
+    @Test (groups = {"smoke","regression"}, dataProvider = "loginData")
     public void loginTestSelenide (String username, String password, String errorMessage) throws Exception{
 
          /*LoginPage loginPage = new LoginPage();
