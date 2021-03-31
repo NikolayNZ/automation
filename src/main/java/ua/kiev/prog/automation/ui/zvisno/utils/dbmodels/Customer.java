@@ -22,7 +22,7 @@ public class Customer {
 
         @Override
         public String toString (){
-            return "id:" +id + "fn:" +firstName+ "ln:" +lastName+ "email:" +email;
+            return "ID:" + id  +  " FN:" + firstName + " LN:" + lastName + " EMAIL:" + email;
         }
 
     }
@@ -44,7 +44,7 @@ public class Customer {
     public Item getCustomerById(Integer id){
         Item result = null;
 
-        ResultSet resultSet = Session.getInstance().mysql().executeQuery("SELECT * FROM oc_customer WHERE customer_id="+id+";");
+        ResultSet resultSet = Session.getInstance().mysql().executeQuery("SELECT * FROM oc_customer WHERE customer_id=" + id + ";");
         try {
             while (resultSet.next()) {
                 result = Item.builder().

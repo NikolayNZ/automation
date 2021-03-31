@@ -22,7 +22,7 @@ public class MySQLDriver {
         try {
             _mysqlCon = DriverManager.getConnection(url, Config.MYSQL_USERNAME.value, Config.MYSQL_PASSWORD.value);
         } catch (SQLException e) {
-            throw new RuntimeException("can't connect to MySQL server"+ url, e);
+            throw new RuntimeException("Can not connect to MySQL server" + url, e);
         }
     }
 
@@ -35,7 +35,7 @@ public class MySQLDriver {
         try {
             return getStatement().execute(sql);
         }catch (SQLException e){
-            throw new RuntimeException("can't execute SQL query ", e);
+            throw new RuntimeException("Can not execute SQL query", e);
         }
     }
 
@@ -43,14 +43,14 @@ public class MySQLDriver {
         try {
             return getStatement().executeQuery(sql);
         }catch (SQLException e){
-            throw new RuntimeException("can't execute SQL query ", e);
+            throw new RuntimeException("Can not execute SQL query ", e);
         }
     }
 
     public void close() {
         try{
             this._mysqlCon.close();
-        }catch (SQLException e) {/* igmore*/}
+        }catch (SQLException e) {/* ignore*/}
     }
 
 }

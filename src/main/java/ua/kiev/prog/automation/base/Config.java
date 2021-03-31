@@ -15,7 +15,7 @@ public class Config {
     final static public Param MYSQL_HOST = new Param("mysql.host");
     final static public Param MYSQL_PORT = new Param("mysql.port");
     final static public Param MYSQL_DATABASE = new Param("mysql.database");
-    final static public Param MYSQL_USERNAME = new Param("mysql.user");
+    final static public Param MYSQL_USERNAME = new Param("mysql.username");
     final static public Param MYSQL_PASSWORD = new Param("mysql.password");
 
     final static public class Param {

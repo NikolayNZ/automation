@@ -44,7 +44,7 @@ public class Session {
     }
 
     public MySQLDriver mysql(){
-        if(_mysql == null)
+        if (_mysql == null)
             _mysql = new MySQLDriver();
         return _mysql;
     }

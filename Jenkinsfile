@@ -1,18 +1,13 @@
 #!/usr/bin/env groovy
 import com.cloudbees.groovy.cps.NonCPS
 import groovy.transform.Field
-
 import groovy.json.JsonOutput;
 import groovy.json.JsonSlurper;
 import java.util.regex.Pattern
 import static groovy.io.FileType.FILES
-
 // This will work only with multibranch pipelines.
-
 @Field def buildTimestampSlack, commitId, appVersion, projectName = 'product-services-autotests', simpleBranchName
-
 def branchName = env.BRANCH_NAME
-
 properties([
         buildDiscarder([
                 $class               : 'EnhancedOldBuildDiscarder',
@@ -41,10 +36,8 @@ properties([
                         name: 'groups'),
         ])
 ])
-
 node {
     currentBuild.displayName = "#" + (currentBuild.number + "-${params.environment}" + "-${params.groups}")
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// ----- Stage: Build && Run tests
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -58,5 +51,4 @@ node {
             throw err
         }
     }
-
 }

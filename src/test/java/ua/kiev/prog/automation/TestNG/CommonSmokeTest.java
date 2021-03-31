@@ -4,11 +4,10 @@ import com.codeborne.selenide.Selenide;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import ua.kiev.prog.automation.Utils;
+import ua.kiev.prog.automation.ui.zvisno.utils.Utils;
 import ua.kiev.prog.automation.base.Session;
 import ua.kiev.prog.automation.base.UITest;
 import ua.kiev.prog.automation.ui.zvisno.MainPage;
-import ua.kiev.prog.automation.ui.zvisno.utils.dbmodels.Customer;
 
 import java.util.Arrays;
 import java.util.List;
@@ -72,6 +71,7 @@ public class CommonSmokeTest  extends UITest {
 
 
                Session.getInstance().loginIntoWebSite();
+
                mainPage.topMenu.language.selectValue("English");
                System.out.println(mainPage.topMenu.account.getValues());
                compareAccountItems(authAccountItems, softly);
@@ -90,7 +90,7 @@ public class CommonSmokeTest  extends UITest {
            @Test
            public void testWithDB () {
                System.out.println(Utils.db.customer.getCustomerIDs());
-               System.out.println(Utils.db.customer.getCustomerById(1));
+               System.out.println(Utils.db.customer.getCustomerById(3));
            }
        }
 
