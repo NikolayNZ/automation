@@ -22,15 +22,14 @@ public class CategorySQL {
     }
 
     public Map <Integer, CategoryItem> getIdCategory() {
-        Integer id;
-        CategoryItem value;
         Map <Integer, CategoryItem> map = new HashMap<>();
         ResultSet resultSet = Session.getInstance().mysql().executeQuery("SELECT oc_category.category_id, oc_category.parent_id, oc_category_description.name " +
                 "FROM oc_category INNER JOIN oc_category_description " +
                 "ON oc_category.category_id = oc_category_description.category_id ");
         try {
             while (resultSet.next()) {
-                id = resultSet.getInt("category_id");
+                CategoryItem value;
+                Integer id = resultSet.getInt("category_id");
                 value = CategoryItem.builder().
                         categoryId(resultSet.getInt("category_id")).
                         parentId(resultSet.getInt("parent_id")).

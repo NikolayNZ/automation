@@ -38,6 +38,8 @@ public class Session {
             options.addArguments("start-maximized");
             options.addArguments("--disable-web-security");
             options.addArguments("--no-proxy-server");
+            options.addArguments("--headless");
+            options.addArguments("--no-sandbox");
             _driver = new ChromeDriver(options);
         }
         return _driver;

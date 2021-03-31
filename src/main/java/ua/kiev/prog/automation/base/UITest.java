@@ -6,14 +6,14 @@ import org.testng.annotations.BeforeMethod;
 
 public class UITest {
 
-        @BeforeMethod
+        @BeforeMethod (alwaysRun = true)
         public void beforeEach () {
             WebDriverRunner.setWebDriver(Session.getInstance().wd());
             Session.getInstance().wd().get (Config.BASE_URL.value + "/index.php?route=account/login");
 
 
         }
-      @AfterMethod
+      @AfterMethod (alwaysRun = true)
        public void afterEach () {
            Session.getInstance().close();
        }
