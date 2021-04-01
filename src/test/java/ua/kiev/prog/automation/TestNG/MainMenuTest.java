@@ -4,6 +4,7 @@ import com.codeborne.selenide.Selenide;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+import ua.kiev.prog.automation.base.Config;
 import ua.kiev.prog.automation.base.Session;
 import ua.kiev.prog.automation.base.UITest;
 import ua.kiev.prog.automation.ui.zvisno.MainPage;
@@ -25,7 +26,9 @@ public class MainMenuTest extends UITest {
 
    @Test
     public void testMainMenu() {
-        Session.getInstance().loginIntoWebSite();
+       // Session.getInstance().loginIntoWebSite();
+       api.loginIntoWebSite();
+       steps.login.login(Config.SITE_USERNAME.value, Config.SITE_PASSWORD.value);
         SoftAssert softAssert = new SoftAssert();
         for (Object[] data:mainMenuData()){
             String menu = (String) data[0];

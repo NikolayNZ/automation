@@ -87,7 +87,7 @@ public class CommonSmokeTest  extends UITest {
                }
            }
 
-           @Test
+           @Test (groups = {"smoke"})
            public void testWithDB () {
                System.out.println(Utils.db.customer.getCustomerIDs());
                System.out.println(Utils.db.customer.getCustomerById(3));
