@@ -1,6 +1,7 @@
 package ua.kiev.prog.automation.TestNG;
 
 
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -24,7 +25,8 @@ import ua.kiev.prog.automation.ui.zvisno.utils.Utils;
 
         };
     }
-    @Test (groups = {"smoke","regression"}, dataProvider = "loginData")
+    @Test (testName ="LoginTest",groups = {"smoke","regression"}, dataProvider = "loginData")
+    @Description("Login test with Selenide")
     public void loginTestSelenide (String username, String password, String errorMessage) throws Exception {
         loginSelenidePage.topMenu.language.selectValue("Русский");
         loginSelenidePage.login.val(username);

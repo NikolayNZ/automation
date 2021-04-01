@@ -1,7 +1,10 @@
 package ua.kiev.prog.automation.ui.zvisno.menu;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import ua.kiev.prog.automation.base.page.BasePage;
+import ua.kiev.prog.automation.ui.zvisno.widgets.CustomSelectBox;
+
 import static com.codeborne.selenide.Selenide.$x;
 
 public class MainMenuBlock extends BasePage {

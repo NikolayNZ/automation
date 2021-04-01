@@ -34,13 +34,11 @@ public class Session {
     private Session(){}
     public WebDriver wd () {
         if (_driver == null) {
-          /*String noGUI = System.getProperty("noGUI", "false");
-            String browserName = System.getProperty("browserName", "chrome");*/
             if ("chrome".equals(Config.BROWSER_NAME.value)) {
+                //Init
                 WebDriverManager.chromedriver().setup();
-
                 ChromeOptions options = new ChromeOptions();
-                options.addArguments("start-maximized");
+                options.addArguments("--start-maximized");
                 options.addArguments("--disable-web-security");
                 options.addArguments("--no-proxy-server");
                 if("true".equals(Config.NO_GUI.value)) {

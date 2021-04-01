@@ -1,7 +1,7 @@
 package ua.kiev.prog.automation.ui.zvisno.widgets;
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,7 @@ public class CustomSelectBox  {
         _button = _self.$x(".//*[@data-toggle='dropdown']");
         _menuList = _self.$x(".//ul[contains(@class,'dropdown-menu')]");
     }
-
+    @Step ("Select checkbox value")
     public void click () {
         this._button.click();
     }
@@ -30,7 +30,7 @@ public class CustomSelectBox  {
         return result;
     }
 
-
+    @Step("Select checkbox value")
     public void selectValue (String value) {
         value = value.trim();
         if (!_menuList.isDisplayed())

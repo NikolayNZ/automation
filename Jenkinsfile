@@ -45,8 +45,23 @@ node {
         try {
             cleanWs()
             checkout scm
+            bat "mvn clean"
             bat "mvn test -Denv=${params.environment} -Dgroups=${params.groups} -DnoGUI=true"
+            bat "mvn allure report"
+            publishHTML (
+                    target : [
+                            allowMissing: false,
+                            alwaysLinkToLastBuild: true,
+                            keepAll: true,
+                            reportDir: 'target/site/allure-maven-plugin',
+                            reportFiles: 'index.html',
+                            reportName: 'Allure Report',
+                            reportTitles: 'Allure Report'
+                    ]
+            )
+
         }
+
         catch (err) {
             throw err
         }

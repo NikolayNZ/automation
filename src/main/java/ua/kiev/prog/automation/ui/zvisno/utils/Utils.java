@@ -7,7 +7,7 @@ import java.util.Random;
 public class Utils {
     final static public DBModel db = new DBModel();
 
-    static final public String genRandString(int length) {
+    static public String genRandString(int length) {
         int leftLimit = 97; // letter 'a'
         int rightLimit = 122; // letter 'z'
         Random random = new Random();
