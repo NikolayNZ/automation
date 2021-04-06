@@ -47,7 +47,7 @@ node {
             checkout scm
             bat "mvn clean"
             bat "mvn test -Denv=${params.environment} -Dgroups=${params.groups}  -DnoGUI=true"
-            bat "mvn allure report"
+            bat "mvn allure:report"
         }
 
         catch (err) {
